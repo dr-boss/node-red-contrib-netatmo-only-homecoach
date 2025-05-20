@@ -1,9 +1,9 @@
 {
   "author": {
-    "name": "Guido Bellomo",
-    "email": "guido.bellomo@gmail.com"
+    "name": "(e)Dr-Boss, author Guido Bellomo",
+    "email": "996.pol@gmail.com, guido.bellomo@gmail.com"
   },
-  "name": "node-red-contrib-netatmo-dashboard",
+  "name": "node-red-contrib-netatmo-only-homecoach",
   "description": "Get JSON payload for NetAtmo dashboard. See http://netatmo.com, https://dev.netatmo.com/doc",
   "dependencies": {
     "netatmo": "^2.2.2",
@@ -27,8 +27,7 @@
   "license": "MIT",
   "node-red": {
     "nodes": {
-      "netatmo": "netatmo-dashboard.js",
-      "netatmo-camera": "netatmo-camera.js"
+      "netatmo": "netatmo-homecoach.js"
     }
   },
   "repositories": [
@@ -39,9 +38,9 @@
   ],
   "maintainers": [
     {
-      "name": "Guido Bellomo",
-      "email": "guido.bellomo@gmail.com",
-      "web": "http://javascript-jedi.com"
+      "name": "Dr-Boss",
+      "email": "996.pol@gmail.com",
+      "web": "http://"
     }
   ]
 }
