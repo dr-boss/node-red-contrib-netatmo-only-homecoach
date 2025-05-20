@@ -1,5 +1,5 @@
-# node-red-contrib-netatmo-dashboard
-[Node-RED](http://nodered.org/docs/getting-started/installation) node to fetch all data (temperature, pressure, humidity, co2, noise, etc) from a NetAtmo device.
+# copy of node-red-contrib-netatmo-dashboard, only smartly modified to work with Homecoach
+[Node-RED](http://nodered.org/docs/getting-started/installation) node to fetch all data (temperature, pressure, humidity, co2, noise, etc) from a NetAtmo homecoach device.
 
 Returns a payload which is split up into to parts: 
 
@@ -13,234 +13,92 @@ the station itselve will shown as reachable even if this is not the case__
 An Example:
 
 ```
+
 {
-    "compact":
-        {
-            "outdoor":
-                {
-                    "reachable": true,
-                    "temperature":15.1,
-                    "humidity":86,
-                    "temperatureTrend":"down",
-                    "battery_percent":15,
-                    "rf_status":47
-                },
-             "rain":
-                {
-                    "reachable": true,
-                    "rain":0,
-                    "sum_rain_24":0.4,
-                    "sum_rain_1":0.101,
-                    "battery_percent":45,
-                    "rf_status":40
-                },
-                modules: 
-                   [ { 
-                        name: 'wohnzimmer',
-                        data_type: [ 'Temperature', 'CO2', 'Humidity' ],
-                        "battery_percent": 14,
-                        "rf_status": 80,
-                        "reachable": true,
-                        "dashboard_data": 
-                        { 
-                            "time_utc": 1545901333,
-                            "Temperature": 23.1,
-                            "CO2": 1555,
-                            "Humidity": 50,
-                            "min_temp": 22.7,
-                            "max_temp": 23.6,
-                            "date_min_temp": 1545866372,
-                            "date_max_temp": 1545896155,
-                            "temp_trend": 'stable' 
-                        },
-                        "temperature": 23.1,
-                        "Humidity": 50,
-                        "CO2": 1555,
-                        "min_temp": 22.7,
-                        "max_temp": 23.6,
-                        "date_min_temp": 1545866372,
-                        "date_max_temp": 1545896155 },
-                    { 
-                        "name": 'Kinderzimmer',
-                        "data_type": [ 'Temperature', 'CO2', 'Humidity' ],
-                        "battery_percent": 45,
-                        "rf_status": 70,
-                        "reachable": true,
-                        "dashboard_data": 
-                        {   
-                            "time_utc": 1545901314,
-                            "Temperature": 23.2,
-                            "CO2": 1258,
-                            "Humidity": 48,
-                            "min_temp": 23,
-                            "max_temp": 23.6,
-                            "date_min_temp": 1545888753,
-                            "date_max_temp": 1545865225,
-                            "temp_trend": 'stable' 
-                        },
-                        "temperature": 23.2,
-                        "Humidity": 48,
-                        "CO2": 1258,
-                        "min_temp": 23,
-                        "max_temp": 23.6,
-                        "date_min_temp": 1545888753,
-                        "date_max_temp": 1545865225 
-                    },
-                     {  
-                        "name": 'Schlafzimmer',
-                        "data_type": [ 'Temperature', 'CO2', 'Humidity'],
-                        battery_percent: 80,
-                        "rf_status": 68,
-                        "reachable": true,
-                        "dashboard_data": 
-                        { 
-                            "time_utc": 1545901314,
-                            "Temperature": 22.7,
-                            "CO2": 1497,
-                            "Humidity": 56,
-                            "min_temp": 22.5,
-                            "max_temp": 22.8,
-                            "date_min_temp": 1545865225,
-                            "date_max_temp": 1545885422,
-                            "temp_trend": 'stable' 
-                        },
-                        "temperature": 22.7,
-                        "Humidity": 56,
-                        "CO2: 1497",
-                        "min_temp": 22.5,
-                        "max_temp": 22.8,
-                        "date_min_temp": 1545865225,
-                        "date_max_temp": 1545885422 
-                    },
-            "temperature":28.9,
-            "co2":704,
-            "humidity":43,
-            "noise":43,
-            "pressure":1021.3,
-            "pressureTrend":"down",
-            "station_name":"Netatmo#Main",
-            "last_status_store":1536857210,
-            "reachable": true,
-        },
-    "detailed":
-        [
-            {
-                "_id":"70:ee:50:02:be:56",
-                "cipher_id":"{your_cypher}",
-                "date_setup":1397226153,
-                "last_setup":1397226153,
-                "type":"NAMain",
-                "last_status_store":1536857210,
-                "module_name":"Office",
-                "firmware":132,
-                "last_upgrade":1440050083,
-                "wifi_status":26,
-                "co2_calibrating":false,
-                "station_name":"Netatmo#Main",
-                "data_type":["Temperature","CO2","Humidity","Noise","Pressure"],
-                "place":{"altitude":36,"city":"Berlin","country":"DE","timezone":"Europe/Berlin","location":[{lat},{long}]},
-                "dashboard_data":
-                    {
-                        "time_utc":1536857196,
-                        "Temperature":28.9,
-                        "CO2":704,
-                        "Humidity":43,
-                        "Noise":43,
-                        "Pressure":1021.3,
-                        "AbsolutePressure":1017,
-                        "min_temp":27.2,
-                        "max_temp":31.9,
-                        "date_min_temp":1536821144,
-                        "date_max_temp":1536813686,
-                        "temp_trend":"up",
-                        "pressure_trend":"down"
-                    },
-                    "modules":
-                        [
-                            {
-                                "_id":"03:00:00:00:db:38",
-                                "type":"NAModule4",
-                                "module_name":"wohnzimmer",
-                                "data_type":["Temperature","CO2","Humidity"],
-                                "last_setup":1397227514,
-                                "dashboard_data":
-                                    {
-                                        "time_utc":1536856881,
-                                        "Temperature":26,
-                                        "CO2":680,
-                                        "Humidity":44,
-                                        "min_temp":25.4,
-                                        "max_temp":26.8,
-                                        "date_min_temp":1536828835,
-                                        "date_max_temp":1536791560,
-                                        "temp_trend":"stable"
-                                    },
-                                    "firmware":44,
-                                    "last_message":1536857208,
-                                    "last_seen":1536856881,
-                                    "rf_status":89,
-                                    "battery_vp":5196,
-                                    "battery_percent":55
-                                },
-                            {
-                                "_id":"02:00:00:02:cb:2e",
-                                "type":"NAModule1",
-                                "module_name":"Outdoor",
-                                "data_type":["Temperature","Humidity"],
-                                "last_setup":1397226241,
-                                "dashboard_data":
-                                    {
-                                        "time_utc":1536857170,
-                                        "Temperature":15.1,
-                                        "Humidity":86,
-                                        "min_temp":13.4,
-                                        "max_temp":17.6,
-                                        "date_min_temp":1536818729,
-                                        "date_max_temp":1536846917,
-                                        "temp_trend":"down"
-                                    },
-                                    "firmware":44,
-                                    "last_message":1536857208,
-                                    "last_seen":1536857170,
-                                    "rf_status":47,
-                                    "battery_vp":3968,
-                                    "battery_percent":15
-                                },
-                            {
-                                "_id":"03:00:00:01:0a:a4",
-                                "type":"NAModule4",
-                                "module_name":"Kinderzimmer",
-                                "data_type":["Temperature","CO2","Humidity"],
-                                "last_setup":1399312524,
-                                "dashboard_data":
-                                    {
-                                        "time_utc":1536857157,
-                                        "Temperature":26.4,
-                                        "CO2":721,
-                                        "Humidity":42,
-                                        "min_temp":25.4,
-                                        "max_temp":27.6,
-                                        "date_min_temp":1536829474,
-                                        "date_max_temp":1536789645,
-                                        "temp_trend":"stable"
-                                    },
-                                    "firmware":44,
-                                    "last_message":1536857208,
-                                    "last_seen":1536857208,
-                                    "rf_status":60,
-                                    "battery_vp":5313,
-                                    "battery_percent":62
-                            }
-                        ]
-            }
-        ]
-    }
+	"compact": {
+		"reachable": true,
+		"station_name": "Dom xxxxxxxxxx",
+		"last_status_store": 1747776439,
+		"temperature": 17.1,
+		"co2": 551,
+		"humidity": 51,
+		"noise": 33,
+		"pressure": 1007.3
+	},
+	"detailed": {
+		"body": {
+			"devices": [
+				{
+					"_id": "70:xx:xx:xx:xx:xx",
+					"station_name": "Dom Rowerowa",
+					"date_setup": 1705524209,
+					"last_setup": 1743627937,
+					"type": "NHC",
+					"last_status_store": 1747776439,
+					"firmware": 59,
+					"wifi_status": 45,
+					"reachable": true,
+					"co2_calibrating": false,
+					"data_type": [
+						"Temperature",
+						"CO2",
+						"Humidity",
+						"Noise",
+						"Pressure",
+						"health_idx"
+					],
+					"place": {
+						"altitude": 75,
+						"city": "Nowy Dwór Mazowiecki",
+						"country": "PL",
+						"timezone": "Europe/Warsaw",
+						"location": [
+							20.0000,
+							52.0000
+						]
+					},
+					"subtype": "PRO",
+					"dashboard_data": {
+						"time_utc": 1747776438,
+						"Temperature": 17.1,
+						"CO2": 551,
+						"Humidity": 51,
+						"Noise": 33,
+						"Pressure": 1007.3,
+						"AbsolutePressure": 998.4,
+						"health_idx": 1,
+						"min_temp": 17.1,
+						"max_temp": 21.5,
+						"date_max_temp": 1747752262,
+						"date_min_temp": 1747776136
+					}
+				}
+			],
+			"user": {
+				"mail": "anonim@email.pl",
+				"administrative": {
+					"country": "PL",
+					"reg_locale": "pl-PL",
+					"lang": "pl",
+					"unit": 0,
+					"windunit": 0,
+					"pressureunit": 0,
+					"feel_like_algo": 0
+				}
+			}
+		},
+		"status": "ok",
+		"time_exec": 0.03810906410217285,
+		"time_server": 1747776657
+	}
+}
+
 ```
 
 ## Authentication
-NetAtmo changed the authentication scheme in October 2022, in order to authenticate with your device you will need to create an application in [Netatmo Connect](https://dev.netatmo.com/) and obtain: *client_id*, *client_secret* and *refresh_token*.
+Use new NetAtmo authentication (from October 2022). From [Netatmo Connect](https://dev.netatmo.com/) obtain: *client_id*, *client_secret* and *refresh_token*.
 To get the refresh_token a OAuth2 client is needed (i.e. [Paw](https://paw.cloud/) for MacOS): use these params
-
+[Update - refresh token is available too from dev.netatmo.com]
 * client_id: from your app in Netatmo Connect
 * client_secret: from your app in Netamo Connect
 * Authorization URL: https://api.netatmo.com/oauth2/authorize
