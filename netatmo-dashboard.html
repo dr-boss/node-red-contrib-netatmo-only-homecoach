@@ -1,5 +1,5 @@
 <script type="text/javascript">
-  RED.nodes.registerType('netatmo-dashboard',{
+  RED.nodes.registerType('netatmo-homecoach',{
     category: 'Netatmo',
     color: '#669966',
     defaults: {
@@ -9,19 +9,19 @@
     outputs:1,
     icon: "feed.png",
     label: function() {
-      return 'NetAtmo Dashboard';
+      return 'NetAtmo Homecoach';
     }
   });
 </script>
 
-<script type="text/x-red" data-template-name="netatmo-dashboard">
+<script type="text/x-red" data-template-name="netatmo-homecoach">
 <div class="form-row">
   <label for="node-input-client_id"><i class="icon-tag"></i> Credentials</label>
   <input type="text" id="node-input-creds" placeholder="Add NetAtmo credentials">
 </div>
 </script>
 
-<script type="text/x-red" data-help-name="netatmo-dashboard">
+<script type="text/x-red" data-help-name="netatmo-homecoach">
 Get JSON payload for NetAtmo dashboard. See http://netatmo.com, https://dev.netatmo.com/doc
 </script>
 
