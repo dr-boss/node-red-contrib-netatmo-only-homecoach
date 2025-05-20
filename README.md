@@ -1,4 +1,4 @@
-# copy of node-red-contrib-netatmo-dashboard, only smartly modified to work with Homecoach
+# Copy of node-red-contrib-netatmo-dashboard, only smartly modified to work with Homecoach
 [Node-RED](http://nodered.org/docs/getting-started/installation) node to fetch all data (temperature, pressure, humidity, co2, noise, etc) from a NetAtmo homecoach device.
 
 Returns a payload which is split up into to parts: 
